@@ -1,23 +1,19 @@
-
 document.getElementById('calculator').addEventListener('submit', function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
 
-    
     const num1 = parseFloat(document.getElementById('num1').value.trim());
     const num2 = parseFloat(document.getElementById('num2').value.trim());
     const operation = document.getElementById('operation').value;
     const resultDiv = document.getElementById('result');
 
-    
     if (isNaN(num1) || isNaN(num2)) {
         resultDiv.textContent = 'Please enter valid numbers.';
-        resultDiv.style.color = '#e53935'; 
+        resultDiv.style.color = '#e53935';
         return;
     }
 
     let result;
 
-    
     switch (operation) {
         case 'add':
             result = num1 + num2;
@@ -42,7 +38,13 @@ document.getElementById('calculator').addEventListener('submit', function (e) {
             return;
     }
 
-    
     resultDiv.textContent = `Result: ${result}`;
-    resultDiv.style.color = '#2e7d32'; 
+    resultDiv.style.color = '#2e7d32';
+});
+
+
+document.querySelectorAll('input[type="text"]').forEach(input => {
+    input.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9.]/g, ''); 
+    });
 });
