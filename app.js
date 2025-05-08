@@ -5,13 +5,6 @@ document.getElementById('calculator').addEventListener('submit', function (e) {
     const num2 = parseFloat(document.getElementById('num2').value.trim());
     const operation = document.getElementById('operation').value;
     const resultDiv = document.getElementById('result');
-
-    if (isNaN(num1) || isNaN(num2)) {
-        resultDiv.textContent = 'Please enter valid numbers.';
-        resultDiv.style.color = '#e53935';
-        return;
-    }
-
     let result;
 
     switch (operation) {
@@ -41,7 +34,6 @@ document.getElementById('calculator').addEventListener('submit', function (e) {
     resultDiv.textContent = `Result: ${result}`;
     resultDiv.style.color = '#2e7d32';
 });
-
 
 document.querySelectorAll('input[type="text"]').forEach(input => {
     input.addEventListener('input', function () {
